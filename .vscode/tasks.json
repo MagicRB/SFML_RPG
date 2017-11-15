@@ -6,6 +6,9 @@
 		{
 			"label": "Build",
 			"type": "shell",
+			"windows": {
+				"command": "cd build; cmake .. -G 'MinGW Makefiles'; make"
+			},
 			"command": "cd build && cmake .. && make",
 			"group": "build",
 			"presentation": {
@@ -19,6 +22,9 @@
 		{
 			"label": "Build & Run",
 			"type": "shell",
+			"windows": {
+				"command": "cd build; cmake .. -G 'MinGW Makefiles'; make; cd bin; ./SFML_TEST"
+			},
 			"command": "cd build && cmake .. && make && cd bin && ./SFML_TEST",
 			"group": "build",
 			"presentation": {

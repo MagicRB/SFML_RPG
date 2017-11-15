@@ -59,6 +59,7 @@
             "name": "Win32",
             "includePath": [
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
+                "F:/Programs/MinGW/mingw64/lib/gcc/x86_64-w64-mingw32/7.1.0/include",
                 "${workspaceRoot}"
             ],
             "defines": [
