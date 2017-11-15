@@ -5,7 +5,6 @@
 
 void Tile::render(sf::RenderWindow* Window)
 {
-	std::cout << "help" << std::endl;
 	Window->draw(*this);
 }
 

@@ -23,9 +23,9 @@
 			"label": "Build & Run",
 			"type": "shell",
 			"windows": {
-				"command": "cd build; cmake .. -G 'MinGW Makefiles'; make; cd bin; ./SFML_TEST"
+				"command": "cd build; cmake .. -G 'MinGW Makefiles'; make; cd bin; cp SFML_TEST ../../run; cd ../../run; ./SFML_TEST"
 			},
-			"command": "cd build && cmake .. && make && cd bin && ./SFML_TEST",
+			"command": "cd build && cmake .. && make && cd bin && cp SFML_TEST ../../run && cd ../../run && ./SFML_TEST",
 			"group": "build",
 			"presentation": {
 				"reveal": "always",

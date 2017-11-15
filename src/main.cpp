@@ -42,7 +42,6 @@ int main()
 		{
 			for (unsigned int i = 0; i < gom.go_vector.size(); i++)
 			{
-				std::cout << i << std::endl;
 				gom.go_vector.at(i)->render(&Window);
 			}
 		}
