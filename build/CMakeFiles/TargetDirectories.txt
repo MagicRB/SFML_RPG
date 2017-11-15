@@ -1,3 +1,0 @@
-/home/main/C++/SFML_TEST/build/CMakeFiles/rebuild_cache.dir
-/home/main/C++/SFML_TEST/build/CMakeFiles/edit_cache.dir
-/home/main/C++/SFML_TEST/build/CMakeFiles/SFML_TEST.dir
