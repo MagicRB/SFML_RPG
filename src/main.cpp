@@ -16,8 +16,8 @@ sf::View        view(sf::Vector2f(0, 0), sf::Vector2f(10*32, 10*32/4*3));
 
 int main()
 {
-	//texm.texture_map["stone_wall"] = sf::Texture();
-	//texm.texture_map.at("stone_wall").loadFromFile("Textures/stone_wall.png");
+	std::cout << "Welcome to SFML_RPG version 0.0000001" << std::endl;
+	std::cout << "-------------------------------------" << std::endl;
 
 	sf::RenderWindow Window(sf::VideoMode(800, 600), "My Window");
 
