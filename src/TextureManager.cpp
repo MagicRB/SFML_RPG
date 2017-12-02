@@ -8,6 +8,7 @@ bool TextureManager::addNewTexture(std::string key)
     {
         texture_map[key] = sf::Texture();
     }
+    return true;
 }
 
 TextureManager::TextureManager()

@@ -23,7 +23,7 @@ std::vector<std::string> split(const char *str, char c = ' ')
     return result;
 }
 
-void WorldLoader::loadWorld (std::string world, TextureManager* texm, goManager* gom)
+void WorldLoader::loadWorld (std::string world, TextureManager* texm, goManager* gom, modManager* mm)
 {
 	std::string line;
 
@@ -60,6 +60,9 @@ void WorldLoader::loadWorld (std::string world, TextureManager* texm, goManager*
 					gom->go_vector.push_back(new Tile(tile_defs.at(tokens.at(0))));
 					Tile* t = dynamic_cast<Tile*>(gom->go_vector.at(gom->go_vector.size() - 1));
 					t->setTilePosition(atoi(tokens.at(1).c_str()), atoi(tokens.at(2).c_str()));
+				} else if (operation == ":MOD")
+				{
+					mm->loadMod(("Mods/" + tokens.at(0) + ".so").c_str());
 				}
 			}
 		}

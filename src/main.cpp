@@ -6,7 +6,9 @@
 #include "TileManager.hpp"
 #include "WorldLoader.hpp"
 #include "goManager.hpp"
+#include "modManager.hpp"
 
+modManager		mm;
 TextureManager  texm;
 TileManager     tm;
 goManager		gom;
@@ -24,7 +26,7 @@ int main()
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
 
-	wl.loadWorld("map.txt", &texm, &gom);
+	wl.loadWorld("map.txt", &texm, &gom, &mm);
 
 	while (Window.isOpen())
 	{
