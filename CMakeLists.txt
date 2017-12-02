@@ -9,4 +9,4 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 
 add_executable(SFML_TEST ${SOURCES})
 
-target_link_libraries(SFML_TEST sfml-window sfml-graphics sfml-system)
+target_link_libraries(SFML_TEST sfml-window sfml-graphics sfml-system dl)
