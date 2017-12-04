@@ -11,7 +11,7 @@ class modManager
 
         std::map<std::string, void*> mods;
 
-        void loadMod(std::string mod_name);
+        void loadMod(std::string mod_name, std::string path);
 
         void closeAllMods();
 

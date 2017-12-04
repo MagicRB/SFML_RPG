@@ -1,15 +1,27 @@
 #include "modManager.hpp"
 
-void modManager::loadMod(std::string mod_name)
+#include <iostream>
+
+void modManager::loadMod(std::string mod_name, std::string path)
 {
     void (*init_mod)() = NULL;
 
 
-    mods.at(mod_name) = dlopen(mod_name.c_str(), RTLD_LAZY);
+    mods[mod_name] = dlopen((path + mod_name + ".so").c_str(), RTLD_LAZY);
 
-    dlerror();
+    if (dlerror() != 0)
+    {
+        std::cout << "Invalid mod path" << std::endl;
+        return;
+    }
 
     init_mod = (void (*)())dlsym(mods.at(mod_name), "initializeMod");
+
+    if (dlerror() != 0)
+    {
+        std::cout << "Invalid mod file" << std::endl;
+        return;
+    }
 
     init_mod();
 }
@@ -21,4 +33,6 @@ void modManager::closeAllMods()
     {
         dlclose(it->second);
     }
+    
+    mods.erase(mods.begin(), mods.end());
 }

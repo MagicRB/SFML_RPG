@@ -25,6 +25,7 @@ int main()
 
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
+	Window.setFramerateLimit(60);
 
 	wl.loadWorld("map.txt", &texm, &gom, &mm);
 
