@@ -60,9 +60,8 @@ void WorldLoader::loadWorld (std::string world, TextureManager* texm, goManager*
 					gom->go_vector.push_back(new Tile(tile_defs.at(tokens.at(0))));
 					Tile* t = dynamic_cast<Tile*>(gom->go_vector.at(gom->go_vector.size() - 1));
 					t->setTilePosition(atoi(tokens.at(1).c_str()), atoi(tokens.at(2).c_str()));
-				} else if (operation == ":MOD")
-				{
-					mm->loadMod(tokens.at(0), "Mods/");
+				} else if (operation == ":MOD") {
+					mm->loadMod(tokens.at(0), "Mods/", gom);
 				}
 			}
 		}
