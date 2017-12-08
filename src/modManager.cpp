@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-void modManager::loadMod(std::string mod_name, std::string path, goManager* gom)
+void modManager::loadMod(std::string mod_name, std::string path, modAPI* mapi)
 {
-    void (*init_mod)(goManager*) = NULL;
+    void (*init_mod)(modAPI*) = NULL;
 
 
     mods[mod_name] = dlopen((path + mod_name + ".so").c_str(), RTLD_LAZY);
@@ -15,7 +15,7 @@ void modManager::loadMod(std::string mod_name, std::string path, goManager* gom)
         return;
     }
 
-    init_mod = (void (*)(goManager*))dlsym(mods.at(mod_name), "initializeMod");
+    init_mod = (void (*)(modAPI*))dlsym(mods.at(mod_name), "initializeMod");
 
     if (dlerror() != 0)
     {
@@ -23,7 +23,7 @@ void modManager::loadMod(std::string mod_name, std::string path, goManager* gom)
         return;
     }
 
-    init_mod(gom);
+    init_mod(mapi);
 }
 
 void modManager::closeAllMods()

@@ -25,6 +25,11 @@ void modAPI::steWorldFileEntry(std::function<void(modAPI*, std::string)> func)
     WorldFileEntryEV.push_back(func);
 }
 
+std::vector<std::function<void(modAPI*, std::string)>> modAPI::getWorldFileEntryEV()
+{
+    return WorldFileEntryEV;
+}
+
 modAPI::modAPI()
 {
 

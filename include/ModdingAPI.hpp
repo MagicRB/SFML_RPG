@@ -17,6 +17,7 @@ class modAPI
         void                sroGom(goManager* rtexm);
 
         void steWorldFileEntry(std::function<void(modAPI*, std::string)> func);
+        std::vector<std::function<void(modAPI*, std::string)>> getWorldFileEntryEV();
 
         modAPI();
         ~modAPI();

@@ -3,15 +3,15 @@
 #include <SFML/Graphics.hpp>
 
 #include "TextureManager.hpp"
-#include "TileManager.hpp"
 #include "WorldLoader.hpp"
 #include "goManager.hpp"
 #include "modManager.hpp"
+#include "ModdingAPI.hpp"
 
 modManager		mm;
 TextureManager  texm;
-TileManager     tm;
 goManager		gom;
+modAPI			mapi;
 WorldLoader		wl;
 sf::View        view(sf::Vector2f(0, 0), sf::Vector2f(10*32, 10*32/4*3));
 
@@ -23,11 +23,16 @@ int main()
 
 	sf::RenderWindow Window(sf::VideoMode(800, 600), "My Window");
 
+	mapi.sroGom(&gom);
+	mapi.sroTexm(&texm);
+
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
 	Window.setFramerateLimit(60);
 
-	wl.loadWorld("map.txt", &texm, &gom, &mm);
+	mm.loadMod("RPG_TEST_MOD", "Mods/", &mapi);
+
+	wl.loadWorld("map.txt", &texm, &gom, &mm, &mapi);
 
 	while (Window.isOpen())
 	{
