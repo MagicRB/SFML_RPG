@@ -20,6 +20,25 @@ void modAPI::sroGom(goManager* rgom)
     pgom = rgom;
 }
 
+sf::RenderWindow* modAPI::grtWindow()
+{
+    return pwindow;
+}
+void modAPI::sroWindow(sf::RenderWindow* window)
+{
+    pwindow = window;
+}
+
+void modAPI::sorControl(std::function<void(modAPI*, sf::Event)> cor)
+{
+    overrideControl = cor;
+}
+
+std::function<void(modAPI*, sf::Event)>  modAPI::gorControl()
+{
+    return overrideControl;
+}
+
 void modAPI::steWorldFileEntry(std::function<void(modAPI*, std::string)> func)
 {
     WorldFileEntryEV.push_back(func);

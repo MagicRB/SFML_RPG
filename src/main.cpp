@@ -25,6 +25,7 @@ int main()
 
 	mapi.sroGom(&gom);
 	mapi.sroTexm(&texm);
+	mapi.sroWindow(&Window);
 
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
@@ -34,22 +35,23 @@ int main()
 
 	wl.loadWorld("map.txt", &texm, &gom, &mm, &mapi);
 
-	while (Window.isOpen())
-	{
+	while (Window.isOpen()) {
 		sf::Event event;
 		Window.pollEvent(event);
-		if (event.type == sf::Event::Closed)
-		{
-			Window.close();
-		} else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Q)
-		{
-			Window.close();
+
+		if (mapi.gorControl() == NULL) {
+			if (event.type == sf::Event::Closed) {
+				Window.close();
+			} else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Q) {
+				Window.close();
+			}
+		} else {
+			mapi.gorControl()(&mapi, event);
 		}
+
 		Window.clear();
-		if(gom.go_vector.size() != 0)
-		{
-			for (unsigned int i = 0; i < gom.go_vector.size(); i++)
-			{
+		if(gom.go_vector.size() != 0) {
+			for (unsigned int i = 0; i < gom.go_vector.size(); i++) {
 				gom.go_vector.at(i)->render(&Window);
 			}
 		}
