@@ -1,4 +1,4 @@
-:TILE ST_WALL ; stone_wall ; false ; 1
+:TILE ST_WALL ; stone_wall ; true ; 1
 
 :MOD RPG_TEST_MOD
 

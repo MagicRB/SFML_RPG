@@ -8,24 +8,26 @@
 #include "modManager.hpp"
 #include "ModdingAPI.hpp"
 
-modManager		mm;
-TextureManager  texm;
-goManager		gom;
-modAPI			mapi;
-WorldLoader		wl;
-sf::View        view(sf::Vector2f(0, 0), sf::Vector2f(10*32, 10*32/4*3));
-
-
 int main()
 {
+	modManager		mm;
+	TextureManager  texm;
+	goManager		gom;
+	modAPI			mapi;
+	WorldLoader		wl;
+	sf::View        view(sf::Vector2f(0, 0), sf::Vector2f(10*32, 10*32/4*3));
+	sf::Event		event;
+
 	std::cout << "Welcome to SFML_RPG version 0.0000001" << std::endl;
 	std::cout << "-------------------------------------" << std::endl;
 
-	sf::RenderWindow Window(sf::VideoMode(800, 600), "My Window");
+	sf::RenderWindow Window(sf::VideoMode(10*32*mapi.windowScale, 10*32/4*3*mapi.windowScale), "My Window");
 
 	mapi.sroGom(&gom);
 	mapi.sroTexm(&texm);
 	mapi.sroWindow(&Window);
+	mapi.sroView(&view);
+	mapi.sroEvent(&event);
 
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
@@ -36,7 +38,6 @@ int main()
 	wl.loadWorld("map.txt", &texm, &gom, &mm, &mapi);
 
 	while (Window.isOpen()) {
-		sf::Event event;
 		Window.pollEvent(event);
 
 		if (mapi.gorControl() == NULL) {

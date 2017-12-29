@@ -7,10 +7,12 @@
 class gameObject
 {
     public:
-		virtual gameOnject();
-		virtual ~gameObject();
-        sf::Vector2f position;
+        sf::Vector2i position;
+
+        virtual sf::FloatRect getBounds() = 0;
         virtual void render(sf::RenderWindow* Window) = 0;
+        virtual void interact(gameObject* igom) = 0;
+        virtual bool collide(gameObject* cgom) = 0;
 };
 
 #endif //GAME_OBJECT_H
