@@ -7,6 +7,8 @@
 class gameObject
 {
     public:
+		virtual gameOnject();
+		virtual ~gameObject();
         sf::Vector2f position;
         virtual void render(sf::RenderWindow* Window) = 0;
 };

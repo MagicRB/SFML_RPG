@@ -1,10 +1,10 @@
 #ifndef MOD_MANAGER_H
 #define MOD_MANAGER_H
 
-#include <dlfcn.h>
 #include <map>
 #include <string>
 
+#include "../include_win32/dlfcn.h"
 #include "ModdingAPI.hpp"
 
 class modManager

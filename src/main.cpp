@@ -25,7 +25,7 @@ int main()
 
 	mapi.sroGom(&gom);
 	mapi.sroTexm(&texm);
-	mapi.sroWindow(&Window);
+	mapi.sroWindow(Window);
 
 	Window.setView(view);
 	Window.setVerticalSyncEnabled(true);
