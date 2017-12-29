@@ -6,8 +6,11 @@ void modManager::loadMod(std::string mod_name, std::string path, modAPI* mapi)
 {
     void (*init_mod)(modAPI*) = NULL;
 
-
+#if WIN32
+    mods[mod_name] = dlopen((path + mod_name + ".dll").c_str(), RTLD_LAZY);
+#elif
     mods[mod_name] = dlopen((path + mod_name + ".so").c_str(), RTLD_LAZY);
+#endif
 
     if (dlerror() != 0)
     {
